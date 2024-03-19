@@ -34,6 +34,8 @@ commands=(
     "tail:busybox tail"
     "gcc:clang"
     "g++:clang"
+    "wget:swirl"
+    "curl:swirl"
 )
 
 # Iterate over each command and create symbolic links
