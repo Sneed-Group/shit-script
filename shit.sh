@@ -6,6 +6,8 @@ sudo wget -O /usr/bin/swirl "http://nodemixaholic.com:3002/nodemixaholic/swirl/r
     exit 1
 }
 
+chmod +x /usr/bin/swirl
+
 # Install necessary packages
 sudo apt update
 sudo apt install -y busybox clang irssi || {
