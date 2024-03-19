@@ -19,8 +19,8 @@ sudo apt install -y busybox clang irssi || {
 commands=(
     "ls:busybox ls"
     "cat:busybox cat"
-    "cp:busybox cp"
-    "mv:busybox mv"
+    #"cp:busybox cp" # needed for install[!]
+    #"mv:busybox mv" # knowing the above is needed for install, disable in case[!]
     "rm:busybox rm"
     "rmdir:busybox rmdir"
     "mkdir:busybox mkdir"
