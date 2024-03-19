@@ -76,3 +76,6 @@ sudo apt install -y firefox libreoffice krita network-manager-gnome || {
     echo "Failed to install others."
     exit 1
 }
+
+## Replace bash with busybox sh
+printf "\n\nbusybox sh" >> "/etc/bash.bashrc"
