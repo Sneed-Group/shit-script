@@ -26,7 +26,7 @@ commands=(
     "mkdir:busybox mkdir"
     "grep:busybox grep"
     "sed:busybox sed"
-    "find:busybox find"
+    #"find:busybox find" #needed for updating initramfs[?]
     "chmod:busybox chmod"
     "chown:busybox chown"
     "wc:busybox wc"
