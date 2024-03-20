@@ -25,12 +25,12 @@ commands=(
     "rmdir:busybox rmdir"
     "mkdir:busybox mkdir"
     #"grep:busybox grep" #needed for updating initramfs[?]
-    "sed:busybox sed"
+    #"sed:busybox sed" #shotgun approach
     #"find:busybox find" #needed for updating initramfs[?]
     "chmod:busybox chmod"
     "chown:busybox chown"
     "wc:busybox wc"
-    "head:busybox sed -n '1,11p; 12q'"
+    #"head:busybox sed -n '1,11p; 12q'"
     "tail:busybox tail"
     "gcc:clang"
     "g++:clang"
