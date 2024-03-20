@@ -10,7 +10,7 @@ chmod +x /usr/bin/swirl
 
 # Install necessary packages
 sudo apt update
-sudo apt install -y busybox clang irssi || {
+sudo apt install -y busybox clang irssi xfce4 || {
     echo "Failed to install necessary packages."
     exit 1
 }
@@ -65,14 +65,8 @@ for cmd in "${commands[@]}"; do
     fi
 done
 
-# Install irssi
-sudo apt install -y irssi || {
-    echo "Failed to install irssi."
-    exit 1
-}
-
 # Install other apps
-sudo apt install -y firefox libreoffice krita network-manager-gnome || {
+sudo apt install -y libreoffice krita network-manager-gnome || {
     echo "Failed to install others."
     exit 1
 }
