@@ -10,7 +10,7 @@ chmod +x /usr/bin/swirl
 
 # Install necessary packages
 sudo apt update
-sudo apt install -y busybox clang irssi xfce4 || {
+sudo apt install -y busybox clang irssi xfce4 xfce4-screenshooter flatpak || {
     echo "Failed to install necessary packages."
     exit 1
 }
@@ -70,6 +70,8 @@ sudo apt install -y libreoffice krita network-manager-gnome || {
     echo "Failed to install others."
     exit 1
 }
+
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 ## Replace bash with busybox sh
 printf "\n\nbusybox sh" >> "/etc/bash.bashrc"
