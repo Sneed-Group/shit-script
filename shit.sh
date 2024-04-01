@@ -59,7 +59,7 @@ printf "\n\nbusybox sh" >> "/etc/bash.bashrc"
 
 sudo apt install cinnamon sddm
 curl -L -url "https://adityagarg8.github.io/t2-ubuntu-repo/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg >/dev/null
-sudo curl -L -url /etc/apt/sources.list.d/t2.list "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
+sudo curl -L -o /etc/apt/sources.list.d/t2.list -url "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
 sudo apt update
 sudo apt install t2-kernel-script
 sudo update_t2_kernel
