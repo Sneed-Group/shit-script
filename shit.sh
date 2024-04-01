@@ -10,28 +10,13 @@ chmod +x /usr/bin/swirl
 
 # Install necessary packages
 sudo apt update
-sudo apt install -y busybox clang irssi xfce4 xfce4-screenshooter flatpak || {
+sudo apt install -y busybox clang irssi xfce4 xfce4-screenshooter flatpak libreoffice krita network-manager-gnome || {
     echo "Failed to install necessary packages."
     exit 1
 }
 
-# List of GNU commands and their corresponding BusyBox equivalents
+# List of GNU commands and their corresponding better equivalents
 commands=(
-    "ls:busybox ls"
-    "cat:busybox cat"
-    #"cp:busybox cp" # needed for installing GRUB apt package[!]
-    #"mv:busybox mv" # knowing the above is needed for install, disable in case[!]
-    "rm:busybox rm"
-    "rmdir:busybox rmdir"
-    "mkdir:busybox mkdir"
-    #"grep:busybox grep" #needed for updating initramfs[?]
-    #"sed:busybox sed" #shotgun approach
-    #"find:busybox find" #needed for updating initramfs[?]
-    "chmod:busybox chmod"
-    "chown:busybox chown"
-    "wc:busybox wc"
-    #"head:busybox sed -n '1,11p; 12q'"
-    "tail:busybox tail"
     "gcc:clang"
     "g++:clang"
     "wget:swirl"
@@ -65,12 +50,6 @@ for cmd in "${commands[@]}"; do
     fi
 done
 
-# Install other apps
-sudo apt install -y libreoffice krita network-manager-gnome || {
-    echo "Failed to install others."
-    exit 1
-}
-
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 ## Replace bash with busybox sh
@@ -78,15 +57,14 @@ printf "\n\nbusybox sh" >> "/etc/bash.bashrc"
 
 ## Add T2 Mac Compatibility
 
-sudo apt install curl git
 sudo apt install cinnamon sddm
-curl -s --compressed "https://adityagarg8.github.io/t2-ubuntu-repo/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg >/dev/null
-sudo curl -s --compressed -o /etc/apt/sources.list.d/t2.list "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
+curl -L -url "https://adityagarg8.github.io/t2-ubuntu-repo/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg >/dev/null
+sudo curl -L -url /etc/apt/sources.list.d/t2.list "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
 sudo apt update
 sudo apt install t2-kernel-script
 sudo update_t2_kernel
 sudo apt install apple-t2-audio-config tiny-dfr zstd
-wget http://nodemixaholic.com:3002/nodemixaholic/apple-broadcom-firmware-arch/raw/branch/main/apple-bcm-firmware-14.0-1-any.pkg.tar.zst
+wget -url http://nodemixaholic.com:3002/nodemixaholic/apple-broadcom-firmware-arch/raw/branch/main/apple-bcm-firmware-14.0-1-any.pkg.tar.zst -o "apple-bcm-firmware-14.0-1-any.pkg.tar.zst"
 zstd -d -c apple-bcm-firmware-14.0-1-any.pkg.tar.zst | tar -xvf -
 sudo cp -r ./usr/* /usr/
 sudo apt install iwd
