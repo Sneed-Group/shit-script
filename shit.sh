@@ -57,11 +57,14 @@ printf "\n\nbusybox sh" >> "/etc/bash.bashrc"
 
 ## Add T2 Mac Compatibility
 
+CODENAME=jammy
+sudo curl -L -o /etc/apt/sources.list.d/t2.list -url "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
+echo "deb [signed-by=/etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg] https://github.com/AdityaGarg8/t2-ubuntu-repo/releases/download/${CODENAME} ./" >> /etc/apt/sources.list.d/t2.list
 sudo apt install cinnamon sddm
 curl -L -url "https://adityagarg8.github.io/t2-ubuntu-repo/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg >/dev/null
-sudo curl -L -o /etc/apt/sources.list.d/t2.list -url "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
 sudo apt update
-sudo apt install t2-kernel-script
+sudo apt install linux-t2
+sudo apt install t2-kernel-script-debian
 sudo update_t2_kernel
 sudo apt install apple-t2-audio-config tiny-dfr zstd
 wget -url http://nodemixaholic.com:3002/nodemixaholic/apple-broadcom-firmware-arch/raw/branch/main/apple-bcm-firmware-14.0-1-any.pkg.tar.zst -o "apple-bcm-firmware-14.0-1-any.pkg.tar.zst"
