@@ -10,7 +10,7 @@ chmod +x /usr/bin/swirl
 
 # Install necessary packages
 sudo apt update
-sudo apt install -y busybox clang irssi xfce4 xfce4-screenshooter flatpak libreoffice krita network-manager-gnome obs-studio || {
+sudo apt install -y busybox clang irssi flatpak libreoffice krita network-manager-gnome obs-studio || {
     echo "Failed to install necessary packages."
     exit 1
 }
