@@ -60,7 +60,7 @@ printf "\n\nbusybox sh" >> "/etc/bash.bashrc"
 CODENAME=jammy
 sudo curl -L -o /etc/apt/sources.list.d/t2.list -url "https://adityagarg8.github.io/t2-ubuntu-repo/t2.list"
 echo "deb [signed-by=/etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg] https://github.com/AdityaGarg8/t2-ubuntu-repo/releases/download/${CODENAME} ./" >> /etc/apt/sources.list.d/t2.list
-sudo apt install cinnamon sddm
+sudo apt install sddm vlc shotcut
 curl -L -url "https://adityagarg8.github.io/t2-ubuntu-repo/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg >/dev/null
 sudo apt update
 sudo apt install linux-t2
