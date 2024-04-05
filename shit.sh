@@ -64,8 +64,6 @@ sudo apt install cinnamon sddm
 curl -L -url "https://adityagarg8.github.io/t2-ubuntu-repo/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/t2-ubuntu-repo.gpg >/dev/null
 sudo apt update
 sudo apt install linux-t2
-sudo apt install t2-kernel-script-debian
-sudo update_t2_kernel
 sudo apt install apple-t2-audio-config tiny-dfr zstd
 wget -url http://nodemixaholic.com:3002/nodemixaholic/apple-broadcom-firmware-arch/raw/branch/main/apple-bcm-firmware-14.0-1-any.pkg.tar.zst -o "apple-bcm-firmware-14.0-1-any.pkg.tar.zst"
 zstd -d -c apple-bcm-firmware-14.0-1-any.pkg.tar.zst | tar -xvf -
