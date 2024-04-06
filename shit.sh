@@ -15,8 +15,23 @@ sudo apt install --no-install-recommends -y busybox clang irssi flatpak libreoff
     exit 1
 }
 
-# List of GNU commands and their corresponding better equivalents
+# List of GNU commands and their corresponding BusyBox equivalents
 commands=(
+    "ls:busybox ls"
+    "cat:busybox cat"
+    #"cp:busybox cp" # needed for installing GRUB apt package[!]
+    #"mv:busybox mv" # knowing the above is needed for install, disable in case[!]
+    "rm:busybox rm"
+    "rmdir:busybox rmdir"
+    "mkdir:busybox mkdir"
+    #"grep:busybox grep" #needed for updating initramfs[?]
+    #"sed:busybox sed" #shotgun approach
+    #"find:busybox find" #needed for updating initramfs[?]
+    "chmod:busybox chmod"
+    "chown:busybox chown"
+    "wc:busybox wc"
+    #"head:busybox sed -n '1,11p; 12q'"
+    "tail:busybox tail"
     "gcc:clang"
     "g++:clang"
     "wget:swirl"
