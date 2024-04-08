@@ -10,10 +10,12 @@ chmod +x /usr/bin/swirl
 
 # Install necessary packages
 sudo apt update
-sudo apt install --no-install-recommends -y busybox clang irssi flatpak libreoffice krita || {
+sudo apt install --no-install-recommends -y busybox clang irssi flatpak libreoffice kritavlc  || {
     echo "Failed to install necessary packages."
     exit 1
 }
+
+sudo apt remove rhythmbox
 
 # List of GNU commands and their corresponding BusyBox equivalents
 commands=(
